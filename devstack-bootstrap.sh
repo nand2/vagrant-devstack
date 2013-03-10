@@ -15,7 +15,7 @@ git clone https://github.com/nand2/vagrant-devstack.git
 git clone https://github.com/openstack-dev/devstack.git
 
 # Copy conf to be used, todo: make that overridable
-cp vagrant-devstack/devstack.conf localrc
+cp vagrant-devstack/devstack.conf devstack/localrc
 
 # Launch devstack!
 cd devstack

@@ -24,8 +24,8 @@ Vagrant::Config.run do |config|
     controller_config.vm.network :hostonly, "172.16.0.201", :netmask => "255.255.0.0"
 
     # Customise the VM virtual hardware
-    controller_config.vm.customize ["modifyvm", :id, "--memory", 2048]
-    controller_config.vm.customize ["modifyvm", :id, "--cpus", 2]
+    controller_config.vm.customize ["modifyvm", :id, "--memory", 3500]
+    controller_config.vm.customize ["modifyvm", :id, "--cpus", 4]
 
     # Share a folder in which the python package cache will be exposed
     # Fill in there the packages if you can't wait for the packages download

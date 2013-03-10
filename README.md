@@ -9,4 +9,4 @@ cd vagrant-devstack
 vagrant up
 ```
 
-Grab a cup of coffee and enjoy!
+Grab a cup of coffee while the monster installs itself. Once finished, you can access Horizon (Openstack web admin interface) at http://172.16.0.201/, with login: admin and pass: Xxdmpzmd32

@@ -2,6 +2,10 @@
 
 set -e
 
+# Copy any files stored in /pip_cache into /var/cache/pip, to warm the cache
+mkdir -p /var/cache/pip
+cp /pip_cache/* /var/cache/pip/
+
 # Make apt faster!
 sudo sed -i 's/http:\/\/us.archive.ubuntu.com\/ubuntu\//mirror:\/\/mirrors.ubuntu.com\/mirrors.txt/g' /etc/apt/sources.list
 
@@ -20,3 +24,6 @@ cp vagrant-devstack/devstack.conf devstack/localrc
 # Launch devstack!
 cd devstack
 ./stack.sh
+
+#Copy back all PIP cache data to the shared folder, for subsequent use
+cp /var/cache/pip/* /pip_cache

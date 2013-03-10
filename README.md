@@ -1,6 +1,7 @@
-DEVSTACK + VAGRANT
-==================
+OPENSTACK + VAGRANT
+===================
 Install Devstack (Openstack dev environment -- http://devstack.org/) in Virtualbox via Vagrant.
+The folsom stable release of Openstack is deployed.
 
 ```
 gem install vagrant

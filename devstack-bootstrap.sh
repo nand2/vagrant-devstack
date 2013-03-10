@@ -11,8 +11,8 @@ sudo apt-get install -qqy git
 # Fetch ourselves
 git clone https://github.com/nand2/vagrant-devstack.git
 
-# Fetch devstack
-git clone https://github.com/openstack-dev/devstack.git
+# Fetch devstack folsom
+git clone -b stable/folsom https://github.com/openstack-dev/devstack.git
 
 # Copy conf to be used, todo: make that overridable
 cp vagrant-devstack/devstack.conf devstack/localrc

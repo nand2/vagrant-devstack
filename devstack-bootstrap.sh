@@ -11,7 +11,7 @@ fi
 if [ $(ls -1 /vagrant/apt_cache/ | wc -l) -gt 0 ]
 then
 	mkdir -p /var/cache/apt
-	cp /vagrant/apt_cache/* /var/cache/apt/
+	cp -R /vagrant/apt_cache/* /var/cache/apt/
 fi
 
 # Make apt faster!
@@ -32,4 +32,4 @@ cd devstack
 
 #Copy back all PIP cache data to the shared folder, for subsequent use
 cp /var/cache/pip/* /vagrant/pip_cache
-cp /var/cache/apt/* /vagrant/apt_cache
+cp -R /var/cache/apt/* /vagrant/apt_cache/ || true

@@ -28,6 +28,11 @@ Vagrant::Config.run do |config|
     controller_config.vm.customize ["modifyvm", :id, "--memory", 3500]
     controller_config.vm.customize ["modifyvm", :id, "--cpus", 4]
   
+    # Long provisioning processes, such as this one, randomly fail (network unreliable
+    # then hang and cancel everything). See https://github.com/mitchellh/vagrant/issues/516
+    # Using workaround found in this ticket.
+    config.vm.customize(["modifyvm", :id, "--nictype1", "Am79C973"])
+
     # Execute the installation scripts (via SSH)
     controller_config.vm.provision :shell, :path => "devstack-bootstrap.sh"
   end

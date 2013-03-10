@@ -3,10 +3,16 @@
 set -e
 
 # Warm the PIP and APT cache
-mkdir -p /var/cache/pip
-cp /vagrant/pip_cache/* /var/cache/pip/
-mkdir -p /var/cache/apt
-cp /vagrant/apt_cache/* /var/cache/apt/
+if [ $(ls -1 /vagrant/pip_cache/ | wc -l) -gt 0 ]
+then
+	mkdir -p /var/cache/pip
+	cp /vagrant/pip_cache/* /var/cache/pip/
+fi
+if [ $(ls -1 /vagrant/apt_cache/ | wc -l) -gt 0 ]
+then
+	mkdir -p /var/cache/apt
+	cp /vagrant/apt_cache/* /var/cache/apt/
+fi
 
 # Make apt faster!
 sudo sed -i 's/http:\/\/us.archive.ubuntu.com\/ubuntu\//mirror:\/\/mirrors.ubuntu.com\/mirrors.txt/g' /etc/apt/sources.list

@@ -17,9 +17,6 @@ Vagrant::Config.run do |config|
     # doesn't already exist on the user's system.
     controller_config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
-    # Boot with a GUI so you can see the screen. (Default is headless)
-    # config.vm.boot_mode = :gui
-
     # Assign this VM to a host-only network IP, allowing you to access it
     # via the IP. Host-only networks can talk to the host machine as well as
     # any other machines on the same network, but cannot be accessed (through this
@@ -29,6 +26,10 @@ Vagrant::Config.run do |config|
     # Customise the VM virtual hardware
     controller_config.vm.customize ["modifyvm", :id, "--memory", 2048]
     controller_config.vm.customize ["modifyvm", :id, "--cpus", 2]
+
+    # Share a folder in which the python package cache will be exposed
+    # Fill in there the packages if you can't wait for the packages download
+    config.vm.share_folder "pip_cache", "/pip_cache", "pip_cache", :create => true
   
     # Execute the installation scripts (via SSH)
     controller_config.vm.provision :shell, :path => "devstack-bootstrap.sh"

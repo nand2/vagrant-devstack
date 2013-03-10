@@ -22,6 +22,7 @@ Vagrant::Config.run do |config|
     # any other machines on the same network, but cannot be accessed (through this
     # network interface) by any external networks.
     controller_config.vm.network :hostonly, "172.16.0.201", :netmask => "255.255.0.0"
+    controller_config.vm.network :hostonly, "10.10.0.201", :netmask => "255.255.0.0"
 
     # Customise the VM virtual hardware
     controller_config.vm.customize ["modifyvm", :id, "--memory", 3500]

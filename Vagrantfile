@@ -27,10 +27,6 @@ Vagrant::Config.run do |config|
     # Customise the VM virtual hardware
     controller_config.vm.customize ["modifyvm", :id, "--memory", 3500]
     controller_config.vm.customize ["modifyvm", :id, "--cpus", 4]
-
-    # Share a folder in which the python package cache will be exposed
-    # Fill in there the packages if you can't wait for the packages download
-    config.vm.share_folder "pip_cache", "/pip_cache", "pip_cache", :create => true
   
     # Execute the installation scripts (via SSH)
     controller_config.vm.provision :shell, :path => "devstack-bootstrap.sh"

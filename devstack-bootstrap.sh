@@ -19,4 +19,4 @@ cp vagrant-devstack/devstack.conf devstack/localrc
 
 # Launch devstack!
 cd devstack
-yes '' | ./stack.sh
+./stack.sh

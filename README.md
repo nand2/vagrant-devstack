@@ -6,6 +6,7 @@ Install the Folsom release of Openstack on Virtualbox thanks to Devstack (Openst
 gem install vagrant
 git clone https://github.com/nand2/vagrant-devstack.git
 cd vagrant-devstack
+./vbox-create-networks.sh # This will add 2 Host-only networks in VirtualBox (careful if you already have some)
 vagrant up
 ```
 
